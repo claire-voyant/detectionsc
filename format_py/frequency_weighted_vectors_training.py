@@ -10,7 +10,7 @@ file_ = open("fwv.arff", "a")
 
 file_.write("@RELATION sys_attack\n")
 
-for x in range(0,325):
+for x in range(0,326):
     file_.write("@ATTRIBUTE " + str(x) + " REAL\n")
 
 file_.write("@ATTRIBUTE class {attack, normal}\n")
@@ -29,7 +29,7 @@ file_number = 1 #used to modify the file_path as we change files
 
 sys_word = {} #dictionary of the system calls
 
-for combo in range(0,833):#now we are going to read the files
+for combo in range(0,800):#now we are going to read the files
 
     for x in range(0,326): #set up the dictionary
         sys_word[x] = 0
