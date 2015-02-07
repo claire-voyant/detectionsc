@@ -1,2 +1,4 @@
 # datamining
-Python Scripts for Formatting Data
+Python Scripts for Formatting Data -- Currently using the ADFA-LD dataset.
+
+
