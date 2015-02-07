@@ -6,4 +6,10 @@ Python Scripts for Formatting Data -- Currently using the ADFA-LD dataset.
   <li>Current plans to use n-grams (with skips), weighted frequency vectors</li>
 </ul>
 
+#Updates
+
+<ul>
+  <li>Created a primitive python script to format the normal training data into the arff file</li>
+</ul>
+
 
