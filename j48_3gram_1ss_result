@@ -1,0 +1,1138 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     sys_attack-weka.filters.unsupervised.instance.ReservoirSample-S1-Z100000
+Instances:    100000
+Attributes:   4
+              POS_ONE
+              POS_TWO
+              POS_THREE
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+POS_THREE <= 45
+|   POS_TWO <= 141
+|   |   POS_ONE <= 45
+|   |   |   POS_THREE <= 5
+|   |   |   |   POS_TWO <= 119
+|   |   |   |   |   POS_TWO <= 96
+|   |   |   |   |   |   POS_ONE <= 43
+|   |   |   |   |   |   |   POS_ONE <= 42
+|   |   |   |   |   |   |   |   POS_TWO <= 41
+|   |   |   |   |   |   |   |   |   POS_TWO <= 5
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 4: normal (5066.0/625.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 4
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 3
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 4: normal (66.0/21.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 4: attack (55.0/20.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 3: normal (499.0/93.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 5
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 20
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 6
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 15: normal (533.0/37.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 15
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 20: attack (12.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 20: normal (21.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 4: normal (458.0/50.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 6
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 15
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 20: attack (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 20: normal (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 3: normal (10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 15: attack (11.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 20: normal (110.0/2.0)
+|   |   |   |   |   |   |   |   POS_TWO > 41
+|   |   |   |   |   |   |   |   |   POS_TWO <= 43: attack (35.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 43
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 45: normal (107.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 45
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 5
+|   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 57: attack (15.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 57: normal (45.0/8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 66: normal (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 66
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 83: attack (17.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 4: normal (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 4: attack (20.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 83: normal (22.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 4: normal (42.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 4: attack (15.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 5: normal (140.0/18.0)
+|   |   |   |   |   |   |   POS_ONE > 42: attack (43.0)
+|   |   |   |   |   |   POS_ONE > 43: normal (176.0/3.0)
+|   |   |   |   |   POS_TWO > 96
+|   |   |   |   |   |   POS_ONE <= 4
+|   |   |   |   |   |   |   POS_TWO <= 102
+|   |   |   |   |   |   |   |   POS_ONE <= 3
+|   |   |   |   |   |   |   |   |   POS_THREE <= 3: normal (10.0/2.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 3: attack (3.0)
+|   |   |   |   |   |   |   |   POS_ONE > 3: attack (25.0)
+|   |   |   |   |   |   |   POS_TWO > 102: attack (42.0)
+|   |   |   |   |   |   POS_ONE > 4: normal (20.0/1.0)
+|   |   |   |   POS_TWO > 119: normal (322.0/7.0)
+|   |   |   POS_THREE > 5
+|   |   |   |   POS_THREE <= 11: normal (1951.0/73.0)
+|   |   |   |   POS_THREE > 11
+|   |   |   |   |   POS_THREE <= 20
+|   |   |   |   |   |   POS_THREE <= 15
+|   |   |   |   |   |   |   POS_TWO <= 3: attack (10.0/2.0)
+|   |   |   |   |   |   |   POS_TWO > 3: normal (42.0/3.0)
+|   |   |   |   |   |   POS_THREE > 15: attack (54.0/2.0)
+|   |   |   |   |   POS_THREE > 20
+|   |   |   |   |   |   POS_THREE <= 43
+|   |   |   |   |   |   |   POS_THREE <= 42: normal (457.0/6.0)
+|   |   |   |   |   |   |   POS_THREE > 42: attack (61.0)
+|   |   |   |   |   |   POS_THREE > 43: normal (401.0)
+|   |   POS_ONE > 45
+|   |   |   POS_THREE <= 4
+|   |   |   |   POS_TWO <= 119
+|   |   |   |   |   POS_ONE <= 300
+|   |   |   |   |   |   POS_ONE <= 254
+|   |   |   |   |   |   |   POS_ONE <= 180
+|   |   |   |   |   |   |   |   POS_TWO <= 42
+|   |   |   |   |   |   |   |   |   POS_ONE <= 141
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 119
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 96
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 66: normal (27.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 66
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 3: normal (23.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 3: attack (13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 4: normal (18.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 5: attack (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 83: normal (70.0/19.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 96
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 4: attack (88.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 4: normal (10.0/2.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 119: normal (202.0/11.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 141
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 4
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 143
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 3: attack (110.0/13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 3: normal (6.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 143: attack (812.0/264.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 4
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 20
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 10: normal (30.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 10: attack (9.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 20: normal (4.0)
+|   |   |   |   |   |   |   |   POS_TWO > 42
+|   |   |   |   |   |   |   |   |   POS_ONE <= 66: attack (131.0/1.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 66
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 141
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 119
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 83: normal (33.0/8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 83: attack (8.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 83: attack (37.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 83: normal (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 96: attack (89.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 119: normal (23.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 141: attack (215.0/12.0)
+|   |   |   |   |   |   |   POS_ONE > 180
+|   |   |   |   |   |   |   |   POS_ONE <= 220: normal (486.0/14.0)
+|   |   |   |   |   |   |   |   POS_ONE > 220
+|   |   |   |   |   |   |   |   |   POS_TWO <= 3: normal (86.0/7.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 3
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 4: attack (48.0/6.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 4
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 96: normal (42.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 96: attack (10.0/2.0)
+|   |   |   |   |   |   POS_ONE > 254: attack (547.0/52.0)
+|   |   |   |   |   POS_ONE > 300
+|   |   |   |   |   |   POS_ONE <= 308: normal (278.0)
+|   |   |   |   |   |   POS_ONE > 308
+|   |   |   |   |   |   |   POS_ONE <= 314: attack (36.0)
+|   |   |   |   |   |   |   POS_ONE > 314
+|   |   |   |   |   |   |   |   POS_ONE <= 332: normal (9.0)
+|   |   |   |   |   |   |   |   POS_ONE > 332: attack (2.0)
+|   |   |   |   POS_TWO > 119
+|   |   |   |   |   POS_ONE <= 220: normal (248.0/2.0)
+|   |   |   |   |   POS_ONE > 220
+|   |   |   |   |   |   POS_ONE <= 252: normal (20.0/6.0)
+|   |   |   |   |   |   POS_ONE > 252: attack (7.0)
+|   |   |   POS_THREE > 4
+|   |   |   |   POS_THREE <= 42
+|   |   |   |   |   POS_TWO <= 91
+|   |   |   |   |   |   POS_ONE <= 192
+|   |   |   |   |   |   |   POS_TWO <= 5
+|   |   |   |   |   |   |   |   POS_THREE <= 5
+|   |   |   |   |   |   |   |   |   POS_ONE <= 96
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 83: normal (15.0/2.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 83: attack (54.0/21.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 96: normal (73.0/16.0)
+|   |   |   |   |   |   |   |   POS_THREE > 5
+|   |   |   |   |   |   |   |   |   POS_THREE <= 20
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 11: normal (211.0/24.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 11
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 3: attack (10.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 3
+|   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 15: normal (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 15: attack (3.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 20: normal (32.0)
+|   |   |   |   |   |   |   POS_TWO > 5
+|   |   |   |   |   |   |   |   POS_TWO <= 66
+|   |   |   |   |   |   |   |   |   POS_ONE <= 143: normal (285.0/4.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 143
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 180
+|   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 10: normal (52.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_THREE > 10
+|   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 20: attack (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 20: normal (19.0/5.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 180: normal (757.0/88.0)
+|   |   |   |   |   |   |   |   POS_TWO > 66
+|   |   |   |   |   |   |   |   |   POS_THREE <= 19
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 5
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 83: normal (27.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 83
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 104: attack (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 104
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 163: normal (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 163: attack (4.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 5
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 83: attack (24.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 83: normal (19.0/1.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 19: normal (58.0)
+|   |   |   |   |   |   POS_ONE > 192
+|   |   |   |   |   |   |   POS_ONE <= 221: normal (679.0/16.0)
+|   |   |   |   |   |   |   POS_ONE > 221
+|   |   |   |   |   |   |   |   POS_TWO <= 4
+|   |   |   |   |   |   |   |   |   POS_ONE <= 252: attack (5.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 252
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 10: normal (11.0/2.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 10: attack (3.0)
+|   |   |   |   |   |   |   |   POS_TWO > 4
+|   |   |   |   |   |   |   |   |   POS_THREE <= 20
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 15: normal (83.0/8.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 15: attack (8.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 20
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 33: normal (38.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 33: attack (3.0/1.0)
+|   |   |   |   |   POS_TWO > 91
+|   |   |   |   |   |   POS_ONE <= 93
+|   |   |   |   |   |   |   POS_ONE <= 66: normal (25.0)
+|   |   |   |   |   |   |   POS_ONE > 66
+|   |   |   |   |   |   |   |   POS_TWO <= 104: attack (4.0)
+|   |   |   |   |   |   |   |   POS_TWO > 104: normal (10.0/1.0)
+|   |   |   |   |   |   POS_ONE > 93: normal (270.0/2.0)
+|   |   |   |   POS_THREE > 42
+|   |   |   |   |   POS_THREE <= 43: attack (145.0)
+|   |   |   |   |   POS_THREE > 43: normal (230.0/18.0)
+|   POS_TWO > 141
+|   |   POS_THREE <= 3
+|   |   |   POS_TWO <= 183
+|   |   |   |   POS_ONE <= 3: attack (712.0/59.0)
+|   |   |   |   POS_ONE > 3
+|   |   |   |   |   POS_ONE <= 146
+|   |   |   |   |   |   POS_TWO <= 163
+|   |   |   |   |   |   |   POS_ONE <= 4: normal (19.0/1.0)
+|   |   |   |   |   |   |   POS_ONE > 4: attack (295.0/17.0)
+|   |   |   |   |   |   POS_TWO > 163
+|   |   |   |   |   |   |   POS_ONE <= 43
+|   |   |   |   |   |   |   |   POS_ONE <= 42
+|   |   |   |   |   |   |   |   |   POS_ONE <= 20: attack (21.0/4.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 20: normal (3.0)
+|   |   |   |   |   |   |   |   POS_ONE > 42: attack (51.0)
+|   |   |   |   |   |   |   POS_ONE > 43
+|   |   |   |   |   |   |   |   POS_TWO <= 168
+|   |   |   |   |   |   |   |   |   POS_ONE <= 143
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 85
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 60: normal (2.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 60: attack (8.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 85: normal (36.0/1.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 143: normal (171.0/66.0)
+|   |   |   |   |   |   |   |   POS_TWO > 168
+|   |   |   |   |   |   |   |   |   POS_ONE <= 125
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 104
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 96: normal (11.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 96: attack (9.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 104: normal (5.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 125: attack (35.0)
+|   |   |   |   |   POS_ONE > 146
+|   |   |   |   |   |   POS_ONE <= 168: attack (1213.0/113.0)
+|   |   |   |   |   |   POS_ONE > 168
+|   |   |   |   |   |   |   POS_ONE <= 252
+|   |   |   |   |   |   |   |   POS_ONE <= 207
+|   |   |   |   |   |   |   |   |   POS_ONE <= 174: normal (3.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 174: attack (71.0/5.0)
+|   |   |   |   |   |   |   |   POS_ONE > 207: normal (42.0/1.0)
+|   |   |   |   |   |   |   POS_ONE > 252: attack (730.0/120.0)
+|   |   |   POS_TWO > 183
+|   |   |   |   POS_TWO <= 252
+|   |   |   |   |   POS_ONE <= 254: normal (940.0/63.0)
+|   |   |   |   |   POS_ONE > 254
+|   |   |   |   |   |   POS_ONE <= 258: attack (3.0)
+|   |   |   |   |   |   POS_ONE > 258
+|   |   |   |   |   |   |   POS_TWO <= 221: attack (7.0/1.0)
+|   |   |   |   |   |   |   POS_TWO > 221: normal (15.0/3.0)
+|   |   |   |   POS_TWO > 252
+|   |   |   |   |   POS_ONE <= 20
+|   |   |   |   |   |   POS_TWO <= 300: attack (400.0/116.0)
+|   |   |   |   |   |   POS_TWO > 300
+|   |   |   |   |   |   |   POS_ONE <= 4
+|   |   |   |   |   |   |   |   POS_TWO <= 308: normal (71.0)
+|   |   |   |   |   |   |   |   POS_TWO > 308: attack (4.0)
+|   |   |   |   |   |   |   POS_ONE > 4: normal (131.0)
+|   |   |   |   |   POS_ONE > 20
+|   |   |   |   |   |   POS_ONE <= 258: attack (896.0/12.0)
+|   |   |   |   |   |   POS_ONE > 258
+|   |   |   |   |   |   |   POS_TWO <= 300: attack (383.0/35.0)
+|   |   |   |   |   |   |   POS_TWO > 300
+|   |   |   |   |   |   |   |   POS_TWO <= 308: normal (13.0)
+|   |   |   |   |   |   |   |   POS_TWO > 308: attack (27.0)
+|   |   POS_THREE > 3
+|   |   |   POS_THREE <= 42
+|   |   |   |   POS_TWO <= 221
+|   |   |   |   |   POS_TWO <= 175
+|   |   |   |   |   |   POS_TWO <= 143: normal (123.0)
+|   |   |   |   |   |   POS_TWO > 143
+|   |   |   |   |   |   |   POS_THREE <= 20
+|   |   |   |   |   |   |   |   POS_THREE <= 11
+|   |   |   |   |   |   |   |   |   POS_THREE <= 4
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 168
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 30
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 5: attack (35.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 5: normal (13.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 30: attack (116.0/20.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 168
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 157: attack (2.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 157: normal (28.0/9.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 4
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 160: normal (21.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 160
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 168
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 163: attack (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 163
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 5: normal (12.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 133
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 85: attack (13.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 85: normal (12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 133: attack (16.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 168: normal (98.0/25.0)
+|   |   |   |   |   |   |   |   POS_THREE > 11: attack (73.0/2.0)
+|   |   |   |   |   |   |   POS_THREE > 20: normal (64.0)
+|   |   |   |   |   POS_TWO > 175
+|   |   |   |   |   |   POS_ONE <= 221
+|   |   |   |   |   |   |   POS_TWO <= 195: normal (1724.0/118.0)
+|   |   |   |   |   |   |   POS_TWO > 195
+|   |   |   |   |   |   |   |   POS_ONE <= 4
+|   |   |   |   |   |   |   |   |   POS_THREE <= 5
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 209
+|   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 4: normal (3.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_THREE > 4: attack (8.0/1.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 209: attack (11.0/1.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 5: normal (23.0)
+|   |   |   |   |   |   |   |   POS_ONE > 4: normal (537.0/31.0)
+|   |   |   |   |   |   POS_ONE > 221
+|   |   |   |   |   |   |   POS_TWO <= 220: normal (20.0/1.0)
+|   |   |   |   |   |   |   POS_TWO > 220: attack (12.0/1.0)
+|   |   |   |   POS_TWO > 221
+|   |   |   |   |   POS_TWO <= 265
+|   |   |   |   |   |   POS_THREE <= 4: attack (424.0/75.0)
+|   |   |   |   |   |   POS_THREE > 4
+|   |   |   |   |   |   |   POS_THREE <= 11
+|   |   |   |   |   |   |   |   POS_TWO <= 258: normal (109.0/15.0)
+|   |   |   |   |   |   |   |   POS_TWO > 258
+|   |   |   |   |   |   |   |   |   POS_THREE <= 5: normal (23.0/5.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 5
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 213: attack (8.0/2.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 213: normal (3.0)
+|   |   |   |   |   |   |   POS_THREE > 11
+|   |   |   |   |   |   |   |   POS_THREE <= 20: attack (62.0/8.0)
+|   |   |   |   |   |   |   |   POS_THREE > 20
+|   |   |   |   |   |   |   |   |   POS_THREE <= 38: normal (78.0/13.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 38
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 40: attack (10.0/1.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 40: normal (2.0)
+|   |   |   |   |   POS_TWO > 265
+|   |   |   |   |   |   POS_TWO <= 314: normal (126.0)
+|   |   |   |   |   |   POS_TWO > 314
+|   |   |   |   |   |   |   POS_TWO <= 324: attack (3.0)
+|   |   |   |   |   |   |   POS_TWO > 324: normal (8.0)
+|   |   |   POS_THREE > 42
+|   |   |   |   POS_THREE <= 43: attack (444.0)
+|   |   |   |   POS_THREE > 43: normal (140.0/8.0)
+POS_THREE > 45
+|   POS_THREE <= 168
+|   |   POS_THREE <= 141
+|   |   |   POS_THREE <= 54
+|   |   |   |   POS_ONE <= 54
+|   |   |   |   |   POS_ONE <= 45
+|   |   |   |   |   |   POS_ONE <= 3
+|   |   |   |   |   |   |   POS_TWO <= 30
+|   |   |   |   |   |   |   |   POS_TWO <= 4: attack (11.0/2.0)
+|   |   |   |   |   |   |   |   POS_TWO > 4: normal (3.0)
+|   |   |   |   |   |   |   POS_TWO > 30: attack (225.0/2.0)
+|   |   |   |   |   |   POS_ONE > 3
+|   |   |   |   |   |   |   POS_TWO <= 30
+|   |   |   |   |   |   |   |   POS_TWO <= 4: attack (3.0/1.0)
+|   |   |   |   |   |   |   |   POS_TWO > 4: normal (30.0)
+|   |   |   |   |   |   |   POS_TWO > 30
+|   |   |   |   |   |   |   |   POS_TWO <= 83: attack (25.0/10.0)
+|   |   |   |   |   |   |   |   POS_TWO > 83: normal (17.0/2.0)
+|   |   |   |   |   POS_ONE > 45
+|   |   |   |   |   |   POS_TWO <= 30
+|   |   |   |   |   |   |   POS_TWO <= 4: attack (152.0)
+|   |   |   |   |   |   |   POS_TWO > 4: normal (9.0/3.0)
+|   |   |   |   |   |   POS_TWO > 30: attack (2656.0/11.0)
+|   |   |   |   POS_ONE > 54
+|   |   |   |   |   POS_ONE <= 272
+|   |   |   |   |   |   POS_ONE <= 221
+|   |   |   |   |   |   |   POS_ONE <= 192
+|   |   |   |   |   |   |   |   POS_TWO <= 83
+|   |   |   |   |   |   |   |   |   POS_TWO <= 4: attack (5.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 4
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 54: normal (33.0/10.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 54: attack (26.0/2.0)
+|   |   |   |   |   |   |   |   POS_TWO > 83
+|   |   |   |   |   |   |   |   |   POS_TWO <= 174
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 155
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 133
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 104
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 83: attack (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 96: normal (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 96: attack (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 104: normal (12.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 133: attack (4.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 155: normal (57.0/4.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 174
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 221
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 183
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 125: normal (12.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 125: attack (10.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 183: normal (3.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 221: attack (10.0/1.0)
+|   |   |   |   |   |   |   POS_ONE > 192: normal (27.0)
+|   |   |   |   |   |   POS_ONE > 221: attack (32.0/5.0)
+|   |   |   |   |   POS_ONE > 272: attack (836.0)
+|   |   |   POS_THREE > 54
+|   |   |   |   POS_THREE <= 119
+|   |   |   |   |   POS_THREE <= 102
+|   |   |   |   |   |   POS_TWO <= 243
+|   |   |   |   |   |   |   POS_TWO <= 183
+|   |   |   |   |   |   |   |   POS_TWO <= 160
+|   |   |   |   |   |   |   |   |   POS_ONE <= 243
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 3
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 60
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 96: normal (127.0/15.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 96: attack (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 4: attack (14.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 5: normal (265.0/11.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 60
+|   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 120
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 85: normal (45.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 85: attack (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 120: normal (16.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 140
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 104: attack (33.0/14.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 104: normal (10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 140: attack (4.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 3
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 168
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 160
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 83: attack (94.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 83: normal (59.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 96: attack (63.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 104
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 66: normal (53.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 66
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 83: normal (19.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 83: attack (10.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 96: attack (23.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 83: attack (60.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 83: normal (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 96: attack (30.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 45
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 83: normal (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 96: attack (21.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 96: normal (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 83: normal (25.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 96: attack (9.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 96: normal (9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 5: normal (196.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 45
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 91
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 57
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 43
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 83: normal (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 83: attack (11.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 9: attack (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 9: normal (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 83: normal (13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 43: attack (13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 57: normal (621.0/171.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 104: attack (86.0/24.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 104: normal (13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 30: normal (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 30: attack (128.0/33.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 91
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 30
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 66: normal (7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 66
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 5: normal (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 5: attack (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 30
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 83: attack (72.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 66: normal (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 66: attack (38.0/11.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 83: normal (592.0/76.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 104
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 141: normal (218.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 141
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 83: normal (14.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 83: attack (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 160
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 85
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 96: attack (187.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 66
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 3: normal (28.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 20: attack (27.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 20: normal (33.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 66: attack (44.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 85: normal (170.0/79.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 168
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 221: normal (294.0/14.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 221
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 85: normal (92.0/23.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 85
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 104: attack (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 104: normal (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 41: normal (10.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 41: attack (29.0/8.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 243
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 258: attack (111.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 258
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 265
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 57: attack (44.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 57
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 85
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 85: normal (45.0/19.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 85: attack (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 85
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 83: attack (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 83: normal (51.0/24.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 265: normal (11.0)
+|   |   |   |   |   |   |   |   POS_TWO > 160
+|   |   |   |   |   |   |   |   |   POS_THREE <= 96: attack (414.0/40.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 96
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 133: normal (282.0/98.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 133
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 168: attack (191.0/33.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 168
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 252: normal (34.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 252: attack (36.0/6.0)
+|   |   |   |   |   |   |   POS_TWO > 183
+|   |   |   |   |   |   |   |   POS_TWO <= 221: normal (509.0/12.0)
+|   |   |   |   |   |   |   |   POS_TWO > 221
+|   |   |   |   |   |   |   |   |   POS_ONE <= 180
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 96
+|   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 83
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 146: normal (81.0/18.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 146: attack (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_THREE > 83: normal (7.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 96: attack (32.0/3.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 180
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 243: normal (402.0/40.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 243
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 258: attack (10.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 258: normal (73.0/17.0)
+|   |   |   |   |   |   POS_TWO > 243
+|   |   |   |   |   |   |   POS_ONE <= 85
+|   |   |   |   |   |   |   |   POS_ONE <= 5: attack (73.0/7.0)
+|   |   |   |   |   |   |   |   POS_ONE > 5
+|   |   |   |   |   |   |   |   |   POS_ONE <= 30: normal (22.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 30
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 85: attack (32.0/13.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 85: normal (35.0/9.0)
+|   |   |   |   |   |   |   POS_ONE > 85
+|   |   |   |   |   |   |   |   POS_TWO <= 265
+|   |   |   |   |   |   |   |   |   POS_THREE <= 83
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 252: attack (62.0/15.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 252: normal (26.0/7.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 83: attack (329.0/8.0)
+|   |   |   |   |   |   |   |   POS_TWO > 265: normal (12.0)
+|   |   |   |   |   POS_THREE > 102
+|   |   |   |   |   |   POS_THREE <= 114
+|   |   |   |   |   |   |   POS_ONE <= 45
+|   |   |   |   |   |   |   |   POS_THREE <= 104: attack (119.0)
+|   |   |   |   |   |   |   |   POS_THREE > 104: normal (8.0)
+|   |   |   |   |   |   |   POS_ONE > 45: attack (1504.0/1.0)
+|   |   |   |   |   |   POS_THREE > 114
+|   |   |   |   |   |   |   POS_THREE <= 118
+|   |   |   |   |   |   |   |   POS_TWO <= 220: normal (127.0)
+|   |   |   |   |   |   |   |   POS_TWO > 220
+|   |   |   |   |   |   |   |   |   POS_TWO <= 252
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 252: normal (15.0/1.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 252: attack (5.0/2.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 252
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 146
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 3: attack (2.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 3: normal (2.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 146: attack (3.0)
+|   |   |   |   |   |   |   POS_THREE > 118: attack (196.0/4.0)
+|   |   |   |   POS_THREE > 119
+|   |   |   |   |   POS_TWO <= 258
+|   |   |   |   |   |   POS_THREE <= 125: normal (1212.0/93.0)
+|   |   |   |   |   |   POS_THREE > 125
+|   |   |   |   |   |   |   POS_THREE <= 140
+|   |   |   |   |   |   |   |   POS_ONE <= 220: normal (1074.0/12.0)
+|   |   |   |   |   |   |   |   POS_ONE > 220
+|   |   |   |   |   |   |   |   |   POS_TWO <= 5
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 3
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 221: attack (2.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 221: normal (2.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 3: attack (4.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 5: normal (43.0/3.0)
+|   |   |   |   |   |   |   POS_THREE > 140
+|   |   |   |   |   |   |   |   POS_TWO <= 4: attack (4.0)
+|   |   |   |   |   |   |   |   POS_TWO > 4
+|   |   |   |   |   |   |   |   |   POS_ONE <= 3: attack (4.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 3: normal (17.0/1.0)
+|   |   |   |   |   POS_TWO > 258
+|   |   |   |   |   |   POS_THREE <= 133: normal (12.0/1.0)
+|   |   |   |   |   |   POS_THREE > 133: attack (16.0/1.0)
+|   |   POS_THREE > 141
+|   |   |   POS_THREE <= 160
+|   |   |   |   POS_TWO <= 143
+|   |   |   |   |   POS_THREE <= 146
+|   |   |   |   |   |   POS_TWO <= 102
+|   |   |   |   |   |   |   POS_TWO <= 3: attack (659.0/66.0)
+|   |   |   |   |   |   |   POS_TWO > 3
+|   |   |   |   |   |   |   |   POS_TWO <= 9
+|   |   |   |   |   |   |   |   |   POS_THREE <= 143: normal (30.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 143
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 5: attack (4.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 5: normal (2.0)
+|   |   |   |   |   |   |   |   POS_TWO > 9
+|   |   |   |   |   |   |   |   |   POS_TWO <= 96
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 20
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 7
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 3: attack (9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 3: normal (2.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 7: attack (32.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 20
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 45: normal (12.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 45: attack (29.0/3.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 96: normal (8.0)
+|   |   |   |   |   |   POS_TWO > 102: attack (1200.0/11.0)
+|   |   |   |   |   POS_THREE > 146: normal (28.0)
+|   |   |   |   POS_TWO > 143
+|   |   |   |   |   POS_TWO <= 252
+|   |   |   |   |   |   POS_TWO <= 194
+|   |   |   |   |   |   |   POS_THREE <= 143: attack (437.0)
+|   |   |   |   |   |   |   POS_THREE > 143
+|   |   |   |   |   |   |   |   POS_THREE <= 146
+|   |   |   |   |   |   |   |   |   POS_TWO <= 168
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 252
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 43
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 157: attack (33.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 157
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 9: normal (138.0/54.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 9: attack (20.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 43
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 45: normal (37.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 45
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 143
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 157: attack (37.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 157: normal (12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 143
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 157: normal (240.0/73.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 157
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 157: normal (118.0/37.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 157
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 192: attack (192.0/76.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 192: normal (11.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 252: attack (183.0/51.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 168: attack (57.0)
+|   |   |   |   |   |   |   |   POS_THREE > 146: normal (43.0)
+|   |   |   |   |   |   POS_TWO > 194: normal (174.0)
+|   |   |   |   |   POS_TWO > 252
+|   |   |   |   |   |   POS_TWO <= 265: attack (621.0/28.0)
+|   |   |   |   |   |   POS_TWO > 265: normal (18.0)
+|   |   |   POS_THREE > 160
+|   |   |   |   POS_THREE <= 162: attack (4359.0/5.0)
+|   |   |   |   POS_THREE > 162
+|   |   |   |   |   POS_TWO <= 160
+|   |   |   |   |   |   POS_TWO <= 3: attack (2520.0/190.0)
+|   |   |   |   |   |   POS_TWO > 3
+|   |   |   |   |   |   |   POS_TWO <= 83
+|   |   |   |   |   |   |   |   POS_TWO <= 10
+|   |   |   |   |   |   |   |   |   POS_TWO <= 5
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 252
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 122
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 45
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 4: attack (25.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 4: normal (10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 45: attack (57.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 122
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 194: attack (71.0/29.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 194: normal (9.0/3.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 252: attack (20.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 5
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 4: attack (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 4
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 43: normal (25.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 43
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 83: attack (10.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 83
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 252: normal (52.0/8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 252: attack (3.0)
+|   |   |   |   |   |   |   |   POS_TWO > 10
+|   |   |   |   |   |   |   |   |   POS_TWO <= 43
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 42
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 20: attack (50.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 20: normal (10.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 42: attack (284.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 43
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 45: normal (30.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 45
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 85: attack (221.0/26.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 85
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 146: normal (113.0/53.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 146
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 180: attack (126.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 180
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 252: normal (9.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 252: attack (22.0/3.0)
+|   |   |   |   |   |   |   POS_TWO > 83
+|   |   |   |   |   |   |   |   POS_ONE <= 252
+|   |   |   |   |   |   |   |   |   POS_ONE <= 180
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 83
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 143
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 3: normal (21.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 4: attack (13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 5: normal (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 96: normal (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 96
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 60
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 9: attack (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 9: normal (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 60: attack (45.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 143: attack (107.0/30.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 83
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 163: normal (174.0/41.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 163
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 104: attack (192.0/68.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 104: normal (329.0/154.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 180: normal (83.0/8.0)
+|   |   |   |   |   |   |   |   POS_ONE > 252: attack (132.0/23.0)
+|   |   |   |   |   POS_TWO > 160
+|   |   |   |   |   |   POS_ONE <= 157
+|   |   |   |   |   |   |   POS_TWO <= 168
+|   |   |   |   |   |   |   |   POS_ONE <= 3: attack (1176.0/37.0)
+|   |   |   |   |   |   |   |   POS_ONE > 3
+|   |   |   |   |   |   |   |   |   POS_ONE <= 9
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 4: attack (50.0/12.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 4: normal (32.0/5.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 9: attack (592.0/103.0)
+|   |   |   |   |   |   |   POS_TWO > 168
+|   |   |   |   |   |   |   |   POS_TWO <= 252: normal (47.0/8.0)
+|   |   |   |   |   |   |   |   POS_TWO > 252: attack (919.0/183.0)
+|   |   |   |   |   |   POS_ONE > 157
+|   |   |   |   |   |   |   POS_ONE <= 168
+|   |   |   |   |   |   |   |   POS_TWO <= 252
+|   |   |   |   |   |   |   |   |   POS_TWO <= 180: attack (4668.0/91.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 180
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 213: attack (11.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 213: normal (22.0/7.0)
+|   |   |   |   |   |   |   |   POS_TWO > 252: attack (1809.0/25.0)
+|   |   |   |   |   |   |   POS_ONE > 168
+|   |   |   |   |   |   |   |   POS_ONE <= 252
+|   |   |   |   |   |   |   |   |   POS_ONE <= 195: attack (13.0/2.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 195: normal (108.0/3.0)
+|   |   |   |   |   |   |   |   POS_ONE > 252: attack (2735.0/84.0)
+|   POS_THREE > 168
+|   |   POS_THREE <= 255
+|   |   |   POS_THREE <= 175
+|   |   |   |   POS_THREE <= 174: normal (1143.0/335.0)
+|   |   |   |   POS_THREE > 174
+|   |   |   |   |   POS_TWO <= 141
+|   |   |   |   |   |   POS_TWO <= 119
+|   |   |   |   |   |   |   POS_TWO <= 66
+|   |   |   |   |   |   |   |   POS_TWO <= 4
+|   |   |   |   |   |   |   |   |   POS_ONE <= 78
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 5: attack (45.0/8.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 5: normal (3.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 78: attack (108.0/6.0)
+|   |   |   |   |   |   |   |   POS_TWO > 4: normal (53.0/15.0)
+|   |   |   |   |   |   |   POS_TWO > 66: attack (80.0)
+|   |   |   |   |   |   POS_TWO > 119: normal (28.0)
+|   |   |   |   |   POS_TWO > 141
+|   |   |   |   |   |   POS_TWO <= 160: attack (255.0)
+|   |   |   |   |   |   POS_TWO > 160
+|   |   |   |   |   |   |   POS_TWO <= 174: normal (33.0/8.0)
+|   |   |   |   |   |   |   POS_TWO > 174
+|   |   |   |   |   |   |   |   POS_TWO <= 183
+|   |   |   |   |   |   |   |   |   POS_ONE <= 141
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 104
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 66
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 5: attack (37.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 5: normal (9.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 66: attack (16.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 104: normal (11.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 141: attack (170.0/10.0)
+|   |   |   |   |   |   |   |   POS_TWO > 183: attack (75.0)
+|   |   |   POS_THREE > 175
+|   |   |   |   POS_ONE <= 221
+|   |   |   |   |   POS_THREE <= 221
+|   |   |   |   |   |   POS_TWO <= 258
+|   |   |   |   |   |   |   POS_ONE <= 213
+|   |   |   |   |   |   |   |   POS_TWO <= 168
+|   |   |   |   |   |   |   |   |   POS_TWO <= 157: normal (3731.0/239.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 157
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 195: attack (19.0/2.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 195: normal (19.0/2.0)
+|   |   |   |   |   |   |   |   POS_TWO > 168: normal (4375.0/203.0)
+|   |   |   |   |   |   |   POS_ONE > 213
+|   |   |   |   |   |   |   |   POS_ONE <= 219: attack (102.0)
+|   |   |   |   |   |   |   |   POS_ONE > 219: normal (1171.0/44.0)
+|   |   |   |   |   |   POS_TWO > 258
+|   |   |   |   |   |   |   POS_TWO <= 266
+|   |   |   |   |   |   |   |   POS_THREE <= 207
+|   |   |   |   |   |   |   |   |   POS_ONE <= 122: normal (5.0/1.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 122: attack (3.0)
+|   |   |   |   |   |   |   |   POS_THREE > 207: attack (40.0/1.0)
+|   |   |   |   |   |   |   POS_TWO > 266: normal (10.0)
+|   |   |   |   |   POS_THREE > 221
+|   |   |   |   |   |   POS_THREE <= 243
+|   |   |   |   |   |   |   POS_ONE <= 66
+|   |   |   |   |   |   |   |   POS_ONE <= 3
+|   |   |   |   |   |   |   |   |   POS_TWO <= 243: normal (142.0/15.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 243: attack (16.0/4.0)
+|   |   |   |   |   |   |   |   POS_ONE > 3
+|   |   |   |   |   |   |   |   |   POS_ONE <= 4
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 85
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 57: attack (37.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 57: normal (17.0/5.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 85: attack (138.0/52.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 4
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 15: normal (115.0/15.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 15
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 45
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 40
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 213
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 133
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 19: attack (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 19
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 38: normal (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 38: attack (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 133: normal (10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 213: attack (25.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 40: normal (8.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 45: attack (17.0/1.0)
+|   |   |   |   |   |   |   POS_ONE > 66
+|   |   |   |   |   |   |   |   POS_ONE <= 213
+|   |   |   |   |   |   |   |   |   POS_ONE <= 192
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 83
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 180
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 85: normal (55.0/17.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 85: attack (9.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 180: normal (567.0/48.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 83
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 243
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 104
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 133
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 42
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 3: attack (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 3: normal (14.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 42: attack (29.0/8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 133: normal (68.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 104
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 180: normal (170.0/13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 180
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE <= 240
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 180: normal (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 180: attack (8.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_THREE > 240: normal (22.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 243
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 256: attack (15.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 256
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 180
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 258: normal (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 258: attack (21.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 180: normal (3.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 192: normal (193.0/2.0)
+|   |   |   |   |   |   |   |   POS_ONE > 213
+|   |   |   |   |   |   |   |   |   POS_ONE <= 219: attack (21.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 219
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 252: normal (37.0/6.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 252: attack (8.0/1.0)
+|   |   |   |   |   |   POS_THREE > 243: normal (113.0)
+|   |   |   |   POS_ONE > 221
+|   |   |   |   |   POS_THREE <= 243
+|   |   |   |   |   |   POS_THREE <= 207
+|   |   |   |   |   |   |   POS_THREE <= 195
+|   |   |   |   |   |   |   |   POS_ONE <= 252: normal (71.0/9.0)
+|   |   |   |   |   |   |   |   POS_ONE > 252
+|   |   |   |   |   |   |   |   |   POS_ONE <= 266: attack (31.0/9.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 266: normal (11.0)
+|   |   |   |   |   |   |   POS_THREE > 195: normal (328.0/1.0)
+|   |   |   |   |   |   POS_THREE > 207
+|   |   |   |   |   |   |   POS_TWO <= 243
+|   |   |   |   |   |   |   |   POS_THREE <= 221
+|   |   |   |   |   |   |   |   |   POS_TWO <= 83
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 4
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 252: normal (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 252: attack (12.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 4: normal (30.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 83
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 272: attack (73.0/20.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 272: normal (4.0/1.0)
+|   |   |   |   |   |   |   |   POS_THREE > 221
+|   |   |   |   |   |   |   |   |   POS_TWO <= 66
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 3
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 243: normal (77.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 243: attack (13.0/1.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 3
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 15
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 5: attack (103.0/35.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 5: normal (12.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 15
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 42: attack (25.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 42
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 45: normal (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 45: attack (4.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 66
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 258
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 207
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 243: normal (234.0/27.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 243: attack (12.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 207: normal (1344.0/592.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 258
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 221
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 192
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 272
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 146: attack (28.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 146: normal (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 272: normal (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_TWO > 192: attack (10.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 221: normal (528.0/114.0)
+|   |   |   |   |   |   |   POS_TWO > 243
+|   |   |   |   |   |   |   |   POS_ONE <= 258
+|   |   |   |   |   |   |   |   |   POS_TWO <= 258: attack (23.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 258: normal (237.0/110.0)
+|   |   |   |   |   |   |   |   POS_ONE > 258: attack (92.0/5.0)
+|   |   |   |   |   POS_THREE > 243: normal (258.0)
+|   |   POS_THREE > 255
+|   |   |   POS_TWO <= 97
+|   |   |   |   POS_TWO <= 66
+|   |   |   |   |   POS_ONE <= 41
+|   |   |   |   |   |   POS_THREE <= 293
+|   |   |   |   |   |   |   POS_TWO <= 9
+|   |   |   |   |   |   |   |   POS_ONE <= 4
+|   |   |   |   |   |   |   |   |   POS_TWO <= 3: attack (452.0/156.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 3
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 5: attack (89.0/12.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 5: normal (12.0)
+|   |   |   |   |   |   |   |   POS_ONE > 4
+|   |   |   |   |   |   |   |   |   POS_ONE <= 33
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 12: normal (26.0/8.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 12: attack (9.0/1.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 33: normal (4.0)
+|   |   |   |   |   |   |   POS_TWO > 9
+|   |   |   |   |   |   |   |   POS_ONE <= 5: attack (32.0)
+|   |   |   |   |   |   |   |   POS_ONE > 5
+|   |   |   |   |   |   |   |   |   POS_ONE <= 9: normal (2.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 9: attack (2.0)
+|   |   |   |   |   |   POS_THREE > 293
+|   |   |   |   |   |   |   POS_TWO <= 43
+|   |   |   |   |   |   |   |   POS_ONE <= 3
+|   |   |   |   |   |   |   |   |   POS_TWO <= 3: attack (5.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 3: normal (12.0)
+|   |   |   |   |   |   |   |   POS_ONE > 3: normal (290.0)
+|   |   |   |   |   |   |   POS_TWO > 43: attack (47.0)
+|   |   |   |   |   POS_ONE > 41
+|   |   |   |   |   |   POS_TWO <= 10
+|   |   |   |   |   |   |   POS_TWO <= 4
+|   |   |   |   |   |   |   |   POS_ONE <= 43: attack (48.0)
+|   |   |   |   |   |   |   |   POS_ONE > 43
+|   |   |   |   |   |   |   |   |   POS_THREE <= 308
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 85
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO <= 3: normal (20.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_TWO > 3: attack (8.0/1.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 85: attack (1475.0/225.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 308
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 3: attack (36.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 3: normal (2.0)
+|   |   |   |   |   |   |   POS_TWO > 4
+|   |   |   |   |   |   |   |   POS_TWO <= 5
+|   |   |   |   |   |   |   |   |   POS_THREE <= 272: attack (3.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 272: normal (7.0)
+|   |   |   |   |   |   |   |   POS_TWO > 5: normal (52.0/1.0)
+|   |   |   |   |   |   POS_TWO > 10
+|   |   |   |   |   |   |   POS_THREE <= 289
+|   |   |   |   |   |   |   |   POS_TWO <= 43: attack (152.0/1.0)
+|   |   |   |   |   |   |   |   POS_TWO > 43
+|   |   |   |   |   |   |   |   |   POS_TWO <= 45: normal (7.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 45: attack (10.0/1.0)
+|   |   |   |   |   |   |   POS_THREE > 289: attack (828.0)
+|   |   |   |   POS_TWO > 66
+|   |   |   |   |   POS_ONE <= 180
+|   |   |   |   |   |   POS_ONE <= 133
+|   |   |   |   |   |   |   POS_THREE <= 311
+|   |   |   |   |   |   |   |   POS_ONE <= 96
+|   |   |   |   |   |   |   |   |   POS_ONE <= 3: attack (18.0/8.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 3: normal (148.0/39.0)
+|   |   |   |   |   |   |   |   POS_ONE > 96
+|   |   |   |   |   |   |   |   |   POS_ONE <= 114: attack (12.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 114: normal (24.0/8.0)
+|   |   |   |   |   |   |   POS_THREE > 311: normal (15.0)
+|   |   |   |   |   |   POS_ONE > 133: attack (27.0)
+|   |   |   |   |   POS_ONE > 180: normal (364.0/31.0)
+|   |   |   POS_TWO > 97
+|   |   |   |   POS_TWO <= 183
+|   |   |   |   |   POS_THREE <= 265
+|   |   |   |   |   |   POS_TWO <= 141
+|   |   |   |   |   |   |   POS_TWO <= 122
+|   |   |   |   |   |   |   |   POS_ONE <= 102
+|   |   |   |   |   |   |   |   |   POS_ONE <= 20: attack (78.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 20
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 66: normal (7.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 66: attack (92.0/5.0)
+|   |   |   |   |   |   |   |   POS_ONE > 102: attack (314.0/4.0)
+|   |   |   |   |   |   |   POS_TWO > 122
+|   |   |   |   |   |   |   |   POS_TWO <= 125: normal (12.0/3.0)
+|   |   |   |   |   |   |   |   POS_TWO > 125: attack (9.0/2.0)
+|   |   |   |   |   |   POS_TWO > 141: attack (4181.0/59.0)
+|   |   |   |   |   POS_THREE > 265
+|   |   |   |   |   |   POS_THREE <= 332
+|   |   |   |   |   |   |   POS_ONE <= 174: normal (18.0)
+|   |   |   |   |   |   |   POS_ONE > 174
+|   |   |   |   |   |   |   |   POS_THREE <= 311: attack (13.0/4.0)
+|   |   |   |   |   |   |   |   POS_THREE > 311: normal (2.0)
+|   |   |   |   |   |   POS_THREE > 332: attack (29.0)
+|   |   |   |   POS_TWO > 183
+|   |   |   |   |   POS_ONE <= 258
+|   |   |   |   |   |   POS_TWO <= 243
+|   |   |   |   |   |   |   POS_TWO <= 220
+|   |   |   |   |   |   |   |   POS_THREE <= 332: normal (63.0/5.0)
+|   |   |   |   |   |   |   |   POS_THREE > 332: attack (11.0)
+|   |   |   |   |   |   |   POS_TWO > 220
+|   |   |   |   |   |   |   |   POS_ONE <= 5: attack (46.0/7.0)
+|   |   |   |   |   |   |   |   POS_ONE > 5
+|   |   |   |   |   |   |   |   |   POS_ONE <= 96: normal (49.0/15.0)
+|   |   |   |   |   |   |   |   |   POS_ONE > 96
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 180: attack (33.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 180
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 221
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 207: normal (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 207: attack (24.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 221: attack (257.0/92.0)
+|   |   |   |   |   |   POS_TWO > 243
+|   |   |   |   |   |   |   POS_ONE <= 96
+|   |   |   |   |   |   |   |   POS_TWO <= 308
+|   |   |   |   |   |   |   |   |   POS_THREE <= 293
+|   |   |   |   |   |   |   |   |   |   POS_ONE <= 3: attack (444.0/75.0)
+|   |   |   |   |   |   |   |   |   |   POS_ONE > 3
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 9
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 4: attack (86.0/23.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 4: normal (17.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 9
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 43: attack (42.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 43
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 45: normal (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   POS_ONE > 45: attack (51.0/22.0)
+|   |   |   |   |   |   |   |   |   POS_THREE > 293
+|   |   |   |   |   |   |   |   |   |   POS_TWO <= 272
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE <= 3: attack (2.0)
+|   |   |   |   |   |   |   |   |   |   |   POS_ONE > 3: normal (10.0/4.0)
+|   |   |   |   |   |   |   |   |   |   POS_TWO > 272: normal (23.0)
+|   |   |   |   |   |   |   |   POS_TWO > 308
+|   |   |   |   |   |   |   |   |   POS_TWO <= 314: attack (147.0)
+|   |   |   |   |   |   |   |   |   POS_TWO > 314
+|   |   |   |   |   |   |   |   |   |   POS_THREE <= 300: attack (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   POS_THREE > 300: normal (3.0)
+|   |   |   |   |   |   |   POS_ONE > 96: attack (1482.0/31.0)
+|   |   |   |   |   POS_ONE > 258
+|   |   |   |   |   |   POS_THREE <= 272
+|   |   |   |   |   |   |   POS_TWO <= 258: attack (114.0/16.0)
+|   |   |   |   |   |   |   POS_TWO > 258: normal (1124.0/544.0)
+|   |   |   |   |   |   POS_THREE > 272: attack (71.0/1.0)
+
+Number of Leaves  : 	544
+
+Size of the tree : 	1087
+
+
+Time taken to build model: 10.17 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       90571               90.571  %
+Incorrectly Classified Instances      9429                9.429  %
+Kappa statistic                          0.81  
+Mean absolute error                      0.1424
+Root mean squared error                  0.2704
+Relative absolute error                 28.8107 %
+Root relative squared error             54.393  %
+Coverage of cases (0.95 level)          99.019  %
+Mean rel. region size (0.95 level)      74.7675 %
+Total Number of Instances           100000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.898    0.085    0.929      0.898    0.913      0.811    0.959     0.966     attack
+                 0.915    0.102    0.878      0.915    0.896      0.811    0.959     0.943     normal
+Weighted Avg.    0.906    0.092    0.907      0.906    0.906      0.811    0.959     0.956     
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 49779  5646 |     a = attack
+  3783 40792 |     b = normal
+
