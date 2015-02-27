@@ -10,13 +10,14 @@ file_ = open("ngram.arff", "a")
 
 file_.write("@RELATION sys_attack\n")
 
-file_.write("@RELATION bag relational\n")
+file_.write("@ATTRIBUTE id {attack,normal}\n")
+file_.write("@ATTRIBUTE bag relational\n")
 file_.write("    @ATTRIBUTE " + "POS_ONE" + " REAL\n")
 file_.write("    @ATTRIBUTE " + "POS_TWO" + " REAL\n")
 file_.write("    @ATTRIBUTE " + "POS_THREE" + " REAL\n")
-file_.write("@END bag")
+file_.write("@END bag\n")
 
-file_.write("@ATTRIBUTE class {attack, normal}\n")
+file_.write("@ATTRIBUTE class {0,1}\n")
 file_.write("@DATA\n")
 
 
@@ -45,12 +46,12 @@ for a_file in training_files:
     words = train_file.read().split()
     train_file.close()
 
-    file_.write("\"")
+    file_.write("normal,\"")
 
     for x in range(0,len(words)-2):        
         file_.write(str(words[x]) + "," + str(words[x+1]) + "," + str(words[x+2]) + "\\n")
         
-    file_.write("\",normal\n")
+    file_.write("\",0\n")
     
 
 for a_file in attack_files:
@@ -58,12 +59,12 @@ for a_file in attack_files:
     words = train_file.read().split()
     train_file.close()
 
-    file_.write("\"")
+    file_.write("attack,\"")
 
     for x in range(0,len(words)-2):
-        file_.write(str(words[x]) + "," + str(words[x+1]) + "," + str(words[x+2]) + "\n")
+        file_.write(str(words[x]) + "," + str(words[x+1]) + "," + str(words[x+2]) + "\\n")
 
-    file_.write("\",attack\n")
+    file_.write("\",1\n")
 
 
 
