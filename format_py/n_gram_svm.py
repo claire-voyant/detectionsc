@@ -12,9 +12,9 @@ from sklearn import svm
 #################are located######################
 ##################################################
 
-attack_file = 'C:/Users/will_doyle/Documents/GitHub/datamining/format_py/single_ngram_attack.txt'
-normal_file = 'C:/Users/will_doyle/Documents/GitHub/datamining/format_py/single_ngram_normal.txt'
-test_file = 'C:/Users/will_doyle/Documents/GitHub/datamining/format_py/single_ngram_vali.txt'
+attack_file = 'single_ngram_attack.txt'
+normal_file = 'single_ngram_normal.txt'
+test_file   = 'single_ngram_vali.txt'
 
 ##################################################
 ####Create the instances for validation testing###
@@ -98,6 +98,7 @@ def calClass(svm,data):
         data.remove(['new'])
     for x in data:
         num += 1
+	
         if svm.predict(x) == attack:
             total_a += 1
         elif svm.predict(x) == normal:

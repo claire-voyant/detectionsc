@@ -11,9 +11,46 @@ from sklearn import cross_validation
 #################are located######################
 ##################################################
 
-attack_file = 'C:/Users/will_doyle/Documents/GitHub/datamining/format_py/single_ngram_attack.txt'
-normal_file = 'C:/Users/will_doyle/Documents/GitHub/datamining/format_py/single_ngram_normal.txt'
-test_file = 'C:/Users/will_doyle/Documents/GitHub/datamining/format_py/single_ngram_vali.txt'
+file_a0 = open("a0.txt", "a")
+file_a1 = open("a1.txt", "a")
+file_a2 = open("a2.txt", "a")
+file_a3 = open("a3.txt", "a")
+file_a4 = open("a4.txt", "a")
+file_a5 = open("a5.txt", "a")
+file_a6 = open("a6.txt", "a")
+file_a7 = open("a7.txt", "a")
+file_a8 = open("a8.txt", "a")
+file_a9 = open("a9.txt", "a")
+
+format_a = [file_a0,file_a1,file_a2,file_a3,file_a4,file_a5,file_a6,file_a7,file_a8,file_a9]
+
+file_n0 = open("n0.txt", "a")
+file_n1 = open("n1.txt", "a")
+file_n2 = open("n2.txt", "a")
+file_n3 = open("n3.txt", "a")
+file_n4 = open("n4.txt", "a")
+file_n5 = open("n5.txt", "a")
+file_n6 = open("n6.txt", "a")
+file_n7 = open("n7.txt", "a")
+file_n8 = open("n8.txt", "a")
+file_n9 = open("n9.txt", "a")
+
+format_n = [file_n0,file_n1,file_n2,file_n3,file_n4,file_n5,file_n6,file_n7,file_n8,file_n9]
+
+file_v0 = open("v0.txt", "a")
+file_v1 = open("v1.txt", "a")
+file_v2 = open("v2.txt", "a")
+file_v3 = open("v3.txt", "a")
+file_v4 = open("v4.txt", "a")
+file_v5 = open("v5.txt", "a")
+file_v6 = open("v6.txt", "a")
+file_v7 = open("v7.txt", "a")
+file_v8 = open("v8.txt", "a")
+file_v9 = open("v9.txt", "a")
+
+
+format_v = [file_v0,file_v1,file_v2,file_v3,file_v4,file_v5,file_v6,file_v7,file_v8,file_v9]
+
 
 ##################################################
 ####Create the instances for validation testing###
@@ -162,23 +199,13 @@ print(str(len("Length of skf: " + str(skf))))
 clf = svm.SVC()
 
 print("Starting cross validation with 10 folds...")
-
-for train_index,test_index in skf:
-    print("Training and test new fold...")
-    #print("TRAIN: ", train_index, "TEST: ", test_index)  
-    if len(fit_data[train_index[0]:train_index[-1]]) == len(fit_classes[train_index[0]:train_index[-1]]):
-        print("YAAAAAAAAAAAAAAAAAAA")  
-    print("FIT DATA: " + str(fit_data[train_index[0]:train_index[-1]]) + "\n")
-    print("FIT CLASS: " + str(fit_classes[train_index[0]:train_index[-1]]) + "\n")
-    clf.fit(fit_data[train_index[0]:train_index[-1]] , 
-                    fit_classes[train_index[0]:train_index[-1]])
         
   
-##
+
 #clf.fit(fit_data,fit_classes)
-#
-#print("Model has been trained, building test dataset...")
-#
+
+print("Model has been trained, building test dataset...")
+
 ###################################################
 ##############Create the validation data###########
 ###################################################
