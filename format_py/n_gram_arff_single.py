@@ -125,6 +125,7 @@ to_write = format_n[index]
 for norm in normal_words:
     for x in range(0,len(norm) - (n-1)):
         to_write.write(str(norm[x]) + " " + str(norm[x+1]) + " " + str(norm[x+2]) + " 0\n")
+    to_write.write("new\n")
     y += 1   
     if(y % files_n == 0 and index < 9):	
 	print("X: " + str(y))
@@ -140,6 +141,7 @@ to_write = format_a[index]
 for norm in attack_words:
     for x in range(0,len(norm) - (n-1)):
         to_write.write(str(norm[x]) + " " + str(norm[x+1]) + " " + str(norm[x+2]) + " 1\n")
+    to_write.write("new\n")
     y += 1   
     if(y % files_a == 0 and index < 9):
 	#print("Ending: " + str(index) + "\n Starting: " + str(index+1))

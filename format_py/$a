@@ -258,7 +258,7 @@ fit_classes0 = instance_a2[1] + instance_a3[1] + instance_a4[1] + instance_a5[1]
 vali2 = makeValidationInstance(file_a1,format_index) + makeValidationInstance(file_n1,format_index)
 
 print("Fold 3...")
-clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
+clf.fit(fit_data0,fit_classes0)
 per2 = validateClass(clf,vali2,format_index)
 print("% correct: " + str(per2))
 
@@ -271,9 +271,9 @@ fit_classes0 = instance_a3[1] + instance_a4[1] + instance_a5[1] + instance_a6[1]
 vali3 = makeValidationInstance(file_a2,format_index) + makeValidationInstance(file_n2,format_index)
 
 print("Fold 4...")
-clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
+clf.fit(fit_data0,fit_classes0)
 per3 = validateClass(clf,vali3,format_index)
-print("% correct: " + str(per3))
+print("% correct: " + str(per3)
 ###Fold 5
 ###
 
@@ -284,7 +284,7 @@ fit_classes0 = instance_a4[1] + instance_a5[1] + instance_a6[1] + instance_a7[1]
 vali4 = makeValidationInstance(file_a3,format_index) + makeValidationInstance(file_n3,format_index)
 
 print("Fold 5...")
-clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
+clf.fit(fit_data0,fit_classes0)
 per4 = validateClass(clf,vali4,format_index)
 print("% correct: " + str(per4))
 
@@ -297,7 +297,7 @@ fit_classes0 = instance_a5[1] + instance_a6[1] + instance_a7[1] + instance_a8[1]
 vali5 = makeValidationInstance(file_a4,format_index) + makeValidationInstance(file_n4,format_index)
 
 print("Fold 6...")
-clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
+clf.fit(fit_data0,fit_classes0)
 per5 = validateClass(clf,vali5,format_index)
 print("% correct: " + str(per5))
 
@@ -311,7 +311,7 @@ fit_classes0 = instance_a6[1] + instance_a7[1] + instance_a8[1] + instance_a9[1]
 vali6 = makeValidationInstance(file_a5,format_index) + makeValidationInstance(file_n5,format_index)
 
 print("Fold 7...")
-clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
+clf.fit(fit_data0,fit_classes0)
 per6 = validateClass(clf,vali6,format_index)
 print("% correct: " + str(per6))
 
@@ -324,7 +324,7 @@ fit_classes0 = instance_a7[1] + instance_a8[1] + instance_a9[1] + instance_a0[1]
 vali7 = makeValidationInstance(file_a6,format_index) + makeValidationInstance(file_n6,format_index)
 
 print("Fold 8...")
-clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
+clf.fit(fit_data0,fit_classes0)
 per7 = validateClass(clf,vali7,format_index)
 print("% correct: " + str(per7))
 
@@ -337,8 +337,8 @@ fit_classes0 = instance_a8[1] + instance_a9[1] + instance_a0[1] + instance_a1[1]
 
 vali8 = makeValidationInstance(file_a7,format_index) + makeValidationInstance(file_n7,format_index)
 
-print("Fold 9...")
-clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
+print("Fold 9..."
+clf.fit(fit_data0,fit_classes0)
 per8 = validateClass(clf,vali8,format_index)
 print("% correct: " + str(per8))
 
@@ -350,14 +350,5 @@ fit_classes0 = instance_a9[1] + instance_a0[1] + instance_a1[1] + instance_a2[1]
 
 vali9 = makeValidationInstance(file_a8,format_index) + makeValidationInstance(file_n8,format_index)
 
-print("Fold 10...")
-clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per9 = validateClass(clf,vali9,format_index)
-print("% correct: " + str(per9))
-
-
 total_percent = per0 + per1 + per2 + per3 + per4 + per5 + per6 + per7 + per8 + per9
-print("Total cross validation percentage: " + str(float((total_percent)/(float(10.0))))) 
-
-
-
+print("Total cross validation percentage: " + float((total_percent)/(float(10.0)))) 
