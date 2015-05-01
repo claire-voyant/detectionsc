@@ -5,7 +5,8 @@
 from time import sleep
 from sklearn import svm
 from sklearn import cross_validation
-
+from sklearn import metrics
+import numpy as np
 ##################################################
 #####Hard coded (currently) where the datasets####
 #################are located######################
@@ -51,9 +52,29 @@ file_v9 = "v9.txt"
 total_percent = 0
 format_v = [file_v0,file_v1,file_v2,file_v3,file_v4,file_v5,file_v6,file_v7,file_v8,file_v9]
 format_index = 0
+binary_array = list()
+cur_scores   = list()
 format_array = []
+
+
 for i in range(0,4000000):
    format_array.extend('0')
+
+
+def roc_config(fileName,type_):
+    if isinstance(fileName,str):
+        my_file = open(str(fileName),"r+")
+        words = my_file.read().split("\n")
+        my_file.close()
+        words.remove('')
+        find_new = 0
+        ret_ = list()
+        for word in words:
+            if word == 'new':
+                words[find_new] = type_
+                ret_.append(type_)
+        print("roc_: " + str(ret_))
+    return ret_ 
 ##################################################
 ####Create the instances for validation testing###
 ##################################################
@@ -127,7 +148,8 @@ def makeFitInstance(fileName):
 ########as a ratio################################
 ##################################################
 
-def calClass(svm,data):
+def calClass(svm,data,cur_scores):
+    ret_ = dict()
     normal = ['n']
     attack = ['a']
     num = 0
@@ -145,11 +167,17 @@ def calClass(svm,data):
             print("OOPS")
             return    
     nratio = (float(total_n)/float(num))
+    cur_scores.insert(0,nratio)
+    print(str(cur_scores))
     aratio = (float(total_a)/float(num))    
     if nratio > 0.9:
-        return '0'
+        ret_[0] = '0'
+        ret_[1] = cur_scores
+        return ret_ 
     else:
-        return '1'
+        ret_[0] = '1'
+        ret_[1] = cur_scores 
+        return ret_
 
 
 ##################################################
@@ -164,6 +192,7 @@ def removeNew(t_array):
             a_return.remove(['new'])    
     if ['new'] in a_return:
         print("WHOOPS!")
+        return 1 
     return a_return
 
 
@@ -173,16 +202,20 @@ def removeNew(t_array):
 ##################################################
 
 def validateClass(svm,validation_array,f_index):
+    ret_ = dict()
     validate = 0.0
     num = 0.0
     print("length: " + str(len(validation_array)))
     for data in validation_array:
         num += 1
-        if calClass(svm,data) == format_array[f_index]:
+        cal_ = calClass(svm,data,cur_scores)
+        if cal_[0]  == format_array[f_index]:
             validate += 1
         
-        print("NUM: " + str(int(num)) + " CLASSIFIED AS: " + calClass(svm,data))
-    return float((validate)/(num))
+        print("NUM: " + str(int(num)) + " CLASSIFIED AS: " + str(cal_[0]))
+    ret_[0] = float((validate)/(num))
+    ret_[1] = cal_[1]
+    return ret_
 
 ##################################################
 ################Main##############################
@@ -218,6 +251,7 @@ instance_n7 = makeFitInstance(file_n7)
 instance_n8 = makeFitInstance(file_n8)
 instance_n9 = makeFitInstance(file_n9)
 
+
 clf = svm.SVC()
 print("Starting cross validation with 10 folds...")
 
@@ -233,7 +267,23 @@ vali0 = makeValidationInstance(file_a9,format_index) + makeValidationInstance(fi
 print("Fold 1....")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
 per0 = validateClass(clf,vali0,format_index)
-print("% correct: " + str(per0))
+print("% correct: " + str(per0[0]))
+
+scores_ = per0[1]
+binary_array.extend(roc_config(file_a9,1))
+binary_array.extend(roc_config(file_n9,0))
+
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
+#plt.figure()
+#plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc[2])
+#plt.plot([0, 1], [0, 1], 'k--')
+#plt.xlim([0.0, 1.0])
+#plt.ylim([0.0, 1.05])
+#plt.xlabel('False Positive Rate')
+#plt.ylabel('True Positive Rate')
+#plt.title('Receiver operating characteristic example')
+#plt.legend(loc="lower right")
+#plt.show()
 
 ###Fold 2
 ###
@@ -247,7 +297,10 @@ vali1 = makeValidationInstance(file_a0,format_index) + makeValidationInstance(fi
 print("Fold 2...")
 clf.fit(removeNew(fit_data1),removeNew(fit_classes1))
 per1 = validateClass(clf,vali1,format_index)
-print("% correct: " + str(per1))
+print("% correct: " + str(per1[0]))
+
+scores_ = per1[1]
+
 
 ###Fold 3
 ###
