@@ -7,6 +7,7 @@ from sklearn import svm
 from sklearn import cross_validation
 from sklearn import metrics
 import numpy as np
+import matplotlib.pyplot as plt
 ##################################################
 #####Hard coded (currently) where the datasets####
 #################are located######################
