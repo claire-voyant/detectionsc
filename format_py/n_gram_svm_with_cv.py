@@ -78,7 +78,7 @@ def roc_config(fileName,type_):
     return ret_ 
 ##################################################
 ####Create the instances for validation testing###
-##################################################
+#################################################
 ##################################################
 
 def makeValidationInstance(fileName,f_index):
