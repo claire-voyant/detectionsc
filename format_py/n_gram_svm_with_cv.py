@@ -55,6 +55,7 @@ format_v = [file_v0,file_v1,file_v2,file_v3,file_v4,file_v5,file_v6,file_v7,file
 format_index = 0
 binary_array = list()
 cur_scores   = list()
+new_cur = 0
 format_array = []
 
 
@@ -74,7 +75,6 @@ def roc_config(fileName,type_):
             if word == 'new':
                 words[find_new] = type_
                 ret_.append(type_)
-        print("roc_: " + str(ret_))
     return ret_ 
 ##################################################
 ####Create the instances for validation testing###
@@ -149,8 +149,12 @@ def makeFitInstance(fileName):
 ########as a ratio################################
 ##################################################
 
-def calClass(svm,data,cur_scores):
+def calClass(svm,data,cur_scores,new_cur):
     ret_ = dict()
+    print("begin calClass cur_ is: " + str(new_cur))
+    if new_cur is 1:
+	cur_scores = list()
+        new_cur = 0
     normal = ['n']
     attack = ['a']
     num = 0
@@ -168,7 +172,7 @@ def calClass(svm,data,cur_scores):
             print("OOPS")
             return    
     nratio = (float(total_n)/float(num))
-    cur_scores.insert(0,nratio)
+    cur_scores.insert(len(cur_scores),nratio)
     print(str(cur_scores))
     aratio = (float(total_a)/float(num))    
     if nratio > 0.9:
@@ -202,18 +206,20 @@ def removeNew(t_array):
 ###########of the validation data#################
 ##################################################
 
-def validateClass(svm,validation_array,f_index):
+def validateClass(svm,validation_array,f_index,new_cur):
     ret_ = dict()
     validate = 0.0
     num = 0.0
     print("length: " + str(len(validation_array)))
     for data in validation_array:
         num += 1
-        cal_ = calClass(svm,data,cur_scores)
+        cal_ = calClass(svm,data,cur_scores,new_cur)
         if cal_[0]  == format_array[f_index]:
             validate += 1
         
         print("NUM: " + str(int(num)) + " CLASSIFIED AS: " + str(cal_[0]))
+    
+    new_cur = 1 
     ret_[0] = float((validate)/(num))
     ret_[1] = cal_[1]
     return ret_
@@ -267,13 +273,15 @@ vali0 = makeValidationInstance(file_a9,format_index) + makeValidationInstance(fi
 
 print("Fold 1....")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per0 = validateClass(clf,vali0,format_index)
+per0 = validateClass(clf,vali0,format_index,new_cur)
 print("% correct: " + str(per0[0]))
 
 scores_ = per0[1]
 binary_array.extend(roc_config(file_a9,1))
 binary_array.extend(roc_config(file_n9,0))
 
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
 fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
 #plt.figure()
 #plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc[2])
@@ -297,12 +305,18 @@ vali1 = makeValidationInstance(file_a0,format_index) + makeValidationInstance(fi
 
 print("Fold 2...")
 clf.fit(removeNew(fit_data1),removeNew(fit_classes1))
-per1 = validateClass(clf,vali1,format_index)
+per1 = validateClass(clf,vali1,format_index,new_cur)
 print("% correct: " + str(per1[0]))
 
+scores_ = list()
 scores_ = per1[1]
+binary_array = list()
+binary_array.extend(roc_config(file_a0,1))
+binary_array.extend(roc_config(file_n0,0))
 
-
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
 ###Fold 3
 ###
 
@@ -313,8 +327,19 @@ vali2 = makeValidationInstance(file_a1,format_index) + makeValidationInstance(fi
 
 print("Fold 3...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per2 = validateClass(clf,vali2,format_index)
+per2 = validateClass(clf,vali2,format_index,new_cur)
 print("% correct: " + str(per2))
+
+scores_ = list()
+scores_ = per2[1]
+binary_array = list()
+binary_array.extend(roc_config(file_a1,1))
+binary_array.extend(roc_config(file_n1,0))
+
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
+
 
 ###Fold 4
 ###
@@ -326,8 +351,19 @@ vali3 = makeValidationInstance(file_a2,format_index) + makeValidationInstance(fi
 
 print("Fold 4...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per3 = validateClass(clf,vali3,format_index)
+per3 = validateClass(clf,vali3,format_index,new_cur)
 print("% correct: " + str(per3))
+
+scores_ = list()
+scores_ = per3[1]
+binary_array = list()
+binary_array.extend(roc_config(file_a2,1))
+binary_array.extend(roc_config(file_n2,0))
+
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
+
 ###Fold 5
 ###
 
@@ -339,9 +375,18 @@ vali4 = makeValidationInstance(file_a3,format_index) + makeValidationInstance(fi
 
 print("Fold 5...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per4 = validateClass(clf,vali4,format_index)
+per4 = validateClass(clf,vali4,format_index,new_cur)
 print("% correct: " + str(per4))
 
+scores_ = list()
+scores_ = per4[1]
+binary_array = list()
+binary_array.extend(roc_config(file_a3,1))
+binary_array.extend(roc_config(file_n3,0))
+
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
 ###Fold 6
 ###
 
@@ -352,10 +397,18 @@ vali5 = makeValidationInstance(file_a4,format_index) + makeValidationInstance(fi
 
 print("Fold 6...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per5 = validateClass(clf,vali5,format_index)
+per5 = validateClass(clf,vali5,format_index,new_cur)
 print("% correct: " + str(per5))
 
+scores_ = list()
+scores_ = per5[1]
+binary_array = list()
+binary_array.extend(roc_config(file_a4,1))
+binary_array.extend(roc_config(file_n4,0))
 
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
 ###Fold 7
 ###
 
@@ -366,9 +419,18 @@ vali6 = makeValidationInstance(file_a5,format_index) + makeValidationInstance(fi
 
 print("Fold 7...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per6 = validateClass(clf,vali6,format_index)
+per6 = validateClass(clf,vali6,format_index,new_cur)
 print("% correct: " + str(per6))
 
+scores_ = list()
+scores_ = per6[1]
+binary_array = list()
+binary_array.extend(roc_config(file_a5,1))
+binary_array.extend(roc_config(file_n5,1))
+
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
 ###Fold 8
 ###
 
@@ -379,10 +441,18 @@ vali7 = makeValidationInstance(file_a6,format_index) + makeValidationInstance(fi
 
 print("Fold 8...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per7 = validateClass(clf,vali7,format_index)
+per7 = validateClass(clf,vali7,format_index,new_cur)
 print("% correct: " + str(per7))
 
+scores_ = list()
+scores_ = per7[1]
+binary_array = list()
+binary_array.extend(roc_config(file_a6,1))
+binary_array.extend(roc_config(file_n6,0))
 
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
 ###Fold 9
 ###
 
@@ -393,9 +463,18 @@ vali8 = makeValidationInstance(file_a7,format_index) + makeValidationInstance(fi
 
 print("Fold 9...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per8 = validateClass(clf,vali8,format_index)
+per8 = validateClass(clf,vali8,format_index,new_cur)
 print("% correct: " + str(per8))
 
+scores_ = list()
+scores_ = per8[1]
+binary_array = list()
+binary_array.extend(roc_config(file_a7,1))
+binary_array.extend(roc_config(file_n7,0))
+
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
 ###Fold 10
 ####
 
@@ -406,11 +485,20 @@ vali9 = makeValidationInstance(file_a8,format_index) + makeValidationInstance(fi
 
 print("Fold 10...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
-per9 = validateClass(clf,vali9,format_index)
+per9 = validateClass(clf,vali9,format_index,new_cur)
 print("% correct: " + str(per9))
 
+scores_ = list()
+scores_ = per9[1]
+binary_array = list()
+binary_array.extend(roc_config(file_a8,1))
+binary_array.extend(roc_config(file_n8,0))
 
-total_percent = per0 + per1 + per2 + per3 + per4 + per5 + per6 + per7 + per8 + per9
+print("scores_: " + str(scores_))
+print("bin_array: " + str(binary_array))
+fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_)
+
+total_percent = per0[0] + per1[0] + per2[0] + per3[0] + per4[0] + per5[0] + per6[0] + per7[0] + per8[0] + per9[0]
 print("Total cross validation percentage: " + str(float((total_percent)/(float(10.0))))) 
 
 
