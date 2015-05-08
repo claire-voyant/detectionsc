@@ -612,7 +612,7 @@ plt.legend(loc="lower right")
 
 mean_tpr /= 10 
 mean_tpr[-1] = 1.0
-mean_auc = auc(mean_fpr, mean_tpr)
+mean_auc = metrics.auc(mean_fpr, mean_tpr)
 plt.plot(mean_fpr, mean_tpr, 'k--',
          label='Mean ROC (area = %0.2f)' % mean_auc, lw=2)
 
@@ -621,8 +621,8 @@ plt.ylim([-0.05, 1.05])
 plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('Receiver operating characteristic ')
-plt.legend(loc="lower right")
-savefig('meanroc.png', bbox_inches='tight')
+plt.legend(loc="lower right",fontsize='small')
+savefig('meanroc.png')
 
 total_percent = per0[0] + per1[0] + per2[0] + per3[0] + per4[0] + per5[0] + per6[0] + per7[0] + per8[0] + per9[0]
 print("Total cross validation percentage: " + str(float((total_percent)/(float(10.0))))) 
