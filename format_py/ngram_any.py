@@ -79,7 +79,7 @@ file_v9 = open("v9.txt", "a")
 format_v = [file_v0,file_v1,file_v2,file_v3,file_v4,file_v5,file_v6,file_v7,file_v8,file_v9]
 
 
-the_attack_files = glob.glob("../Basic_Attack/*.txt")
+the_attack_files = glob.glob("../Attack_D_Master/*.txt")
 the_normal_files = glob.glob("../Normal_Data/*.txt")
 the_vali_files   = glob.glob("../Vali_Data/*.txt")
 
