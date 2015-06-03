@@ -14,6 +14,9 @@ from pylab import *
 #################are located######################
 ##################################################
 
+n_compress = "n_compress.txt" 
+ground_truth = "groundtruth.txt"
+
 file_a0 = "a0.txt"
 file_a1 = "a1.txt"
 file_a2 = "a2.txt"
@@ -58,6 +61,7 @@ binary_array = list()
 cur_scores   = list()
 format_array = []
 
+not_compress = open(str(n_compress),"a")
 
 for i in range(0,4000000):
    format_array.extend('0')
@@ -87,8 +91,9 @@ def makeValidationInstance(fileName,f_index):
         words = my_file.read().split("\n")
         my_file.close()
         words.remove('')
-        
+	flag = 0        
         num_instances = words.count("new")
+
         print("Number of Instances to Validate: " + str(num_instances))
      
         instance = []
@@ -103,12 +108,20 @@ def makeValidationInstance(fileName,f_index):
         for i in instance:
             for entry in i:
                 if '1' in entry:
+		    flag = 1
                     entry.remove('1')
 		    format_array[f_index] = '1'
 		    f_index += 1
                 if '0' in entry:
                     entry.remove('0')
 		    f_index += 1
+
+        if flag == 1:
+		for i in range(0,num_instances):
+			gtruth.write("1\n")
+	else:
+		for i in range(0,num_instances):
+			gtruth.write("0\n")
         return instance    
     else:
         return -1
@@ -160,9 +173,10 @@ def calClass(svm,data,cur_scores):
         data.remove(['new'])
     for x in data:
         num += 1
-        if svm.predict(x) == attack:
+	to_test = svm.predict(x)
+        if to_test == attack:
             total_a += 1
-        elif svm.predict(x) == normal:
+        elif to_test == normal:
             total_n += 1
         else:
             print("OOPS")
@@ -214,11 +228,20 @@ def validateClass(svm,validation_array,f_index):
             validate += 1
         
         print("NUM: " + str(int(num)) + " CLASSIFIED AS: " + str(cal_[0]))
+	if cal_[0] == 1:
+		not_compress.write("1\n")
+	elif cal_[0] == 0:
+		not_compress.write("0\n")
     
      
     ret_[0] = float((validate)/(num))
     ret_[1] = cal_[1]
     return ret_
+
+##################################################
+##############Creates the ground truth############
+################for each fold####################
+#################################################
 
 ##################################################
 ################Main##############################
@@ -255,6 +278,7 @@ instance_n8 = makeFitInstance(file_n8)
 instance_n9 = makeFitInstance(file_n9)
 
 
+gtruth = open(str(ground_truth),"a")
 clf = svm.SVC()
 print("Starting cross validation with 10 folds...")
 mean_tpr = 0.0
@@ -265,7 +289,11 @@ all_tpr = []
 fit_data0 = instance_a0[0] + instance_a1[0] + instance_a2[0] + instance_a3[0] + instance_a4[0] + instance_a5[0] + instance_a6[0] + instance_a7[0] + instance_a8[0] + instance_n0[0] + instance_n1[0] + instance_n2[0] + instance_n3[0] + instance_n4[0] + instance_n5[0] + instance_n6[0] + instance_n7[0] + instance_n8[0]
 fit_classes0 = instance_a0[1] + instance_a1[1] + instance_a2[1] + instance_a3[1] + instance_a4[1] + instance_a5[1] + instance_a6[1] + instance_a7[1] + instance_a8[1] + instance_n0[1] + instance_n1[1] + instance_n2[1] + instance_n3[1] + instance_n4[1] + instance_n5[1] + instance_n6[1] + instance_n7[1] + instance_n8[1]
 
-vali0 = makeValidationInstance(file_a9,format_index) + makeValidationInstance(file_n9,format_index)
+vp = makeValidationInstance(file_a9,format_index) 
+vpp = makeValidationInstance(file_n9,format_index)
+
+vali0 = vp+ vpp
+print("sizzzz:" + str(len(vali0)))
 
 print("Fold 1....")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
@@ -284,7 +312,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -300,7 +328,10 @@ fit_data1 = instance_a1[0] + instance_a2[0] + instance_a3[0] + instance_a4[0] + 
 fit_classes1 = instance_a1[1] + instance_a2[1] + instance_a3[1] + instance_a4[1] + instance_a5[1] + instance_a6[1] + instance_a7[1] + instance_a8[1] + instance_a9[1] + instance_n1[1] + instance_n2[1] + instance_n3[1] + instance_n4[1] + instance_n5[1] + instance_n6[1] + instance_n7[1] + instance_n8[1] + instance_n9[1]
 
 
-vali1 = makeValidationInstance(file_a0,format_index) + makeValidationInstance(file_n0, format_index)
+vp = makeValidationInstance(file_a0,format_index) 
+vpp = makeValidationInstance(file_n0, format_index)
+
+vali1 = vp + vpp
 
 print("Fold 2...")
 clf.fit(removeNew(fit_data1),removeNew(fit_classes1))
@@ -320,7 +351,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -335,7 +366,10 @@ cur_scores = list()
 fit_data0 = instance_a2[0] + instance_a3[0] + instance_a4[0] + instance_a5[0] + instance_a6[0] + instance_a7[0] + instance_a8[0] + instance_a9[0] + instance_a0[0] + instance_n2[0] + instance_n3[0] + instance_n4[0] + instance_n5[0] + instance_n6[0] + instance_n7[0] + instance_n8[0] + instance_n9[0] + instance_n0[0]
 fit_classes0 = instance_a2[1] + instance_a3[1] + instance_a4[1] + instance_a5[1] + instance_a6[1] + instance_a7[1] + instance_a8[1] + instance_a9[1] + instance_a0[1] + instance_n2[1] + instance_n3[1] + instance_n4[1] + instance_n5[1] + instance_n6[1] + instance_n7[1] + instance_n8[1] + instance_n9[1] + instance_n0[1]
 
-vali2 = makeValidationInstance(file_a1,format_index) + makeValidationInstance(file_n1,format_index)
+vp = makeValidationInstance(file_a1,format_index) 
+vpp = makeValidationInstance(file_n1,format_index)
+
+vali2 = vp + vpp
 
 print("Fold 3...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
@@ -355,7 +389,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -370,8 +404,10 @@ cur_scores = list()
 fit_data0 = instance_a3[0] + instance_a4[0] + instance_a5[0] + instance_a6[0] + instance_a7[0] + instance_a8[0] + instance_a9[0] + instance_a0[0] + instance_a1[0] + instance_n3[0] + instance_n4[0] + instance_n5[0] + instance_n6[0] + instance_n7[0] + instance_n8[0] + instance_n9[0] + instance_n0[0] + instance_n1[0]
 fit_classes0 = instance_a3[1] + instance_a4[1] + instance_a5[1] + instance_a6[1] + instance_a7[1] + instance_a8[1] + instance_a9[1] + instance_a0[1] + instance_a1[1] + instance_n3[1] + instance_n4[1] + instance_n5[1] + instance_n6[1] + instance_n7[1] + instance_n8[1] + instance_n9[1] + instance_n0[1] + instance_n1[1]
 
-vali3 = makeValidationInstance(file_a2,format_index) + makeValidationInstance(file_n2,format_index)
+vp = makeValidationInstance(file_a2,format_index) 
+vpp = makeValidationInstance(file_n2,format_index)
 
+vali3 = vp + vpp
 print("Fold 4...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
 per3 = validateClass(clf,vali3,format_index)
@@ -390,7 +426,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -406,7 +442,9 @@ fit_data0 = instance_a4[0] + instance_a5[0] + instance_a6[0] + instance_a7[0] + 
 fit_classes0 = instance_a4[1] + instance_a5[1] + instance_a6[1] + instance_a7[1] + instance_a8[1] + instance_a9[1] + instance_a0[1] + instance_a1[1] + instance_a2[1] + instance_n4[1] + instance_n5[1] + instance_n6[1] + instance_n7[1] + instance_n8[1] + instance_n9[1] + instance_n0[1] + instance_n1[1] + instance_n2[1]
 
 
-vali4 = makeValidationInstance(file_a3,format_index) + makeValidationInstance(file_n3,format_index)
+vp = makeValidationInstance(file_a3,format_index) 
+vpp = makeValidationInstance(file_n3,format_index)
+vali4 = vp + vpp
 
 print("Fold 5...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
@@ -426,7 +464,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -441,7 +479,10 @@ cur_scores = list()
 fit_data0 = instance_a5[0] + instance_a6[0] + instance_a7[0] + instance_a8[0] + instance_a9[0] + instance_a0[0] + instance_a1[0] + instance_a2[0] + instance_a3[0] + instance_n5[0] + instance_n6[0] + instance_n7[0] + instance_n8[0] + instance_n9[0] + instance_n0[0] + instance_n1[0] + instance_n2[0] + instance_n3[0]
 fit_classes0 = instance_a5[1] + instance_a6[1] + instance_a7[1] + instance_a8[1] + instance_a9[1] + instance_a0[1] + instance_a1[1] + instance_a2[1] + instance_a3[1] + instance_n5[1] + instance_n6[1] + instance_n7[1] + instance_n8[1] + instance_n9[1] + instance_n0[1] + instance_n1[1] + instance_n2[1] + instance_n3[1]
 
-vali5 = makeValidationInstance(file_a4,format_index) + makeValidationInstance(file_n4,format_index)
+vp = makeValidationInstance(file_a4,format_index) 
+vpp = makeValidationInstance(file_n4,format_index)
+
+vali5 = vp + vpp
 
 print("Fold 6...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
@@ -461,7 +502,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -476,7 +517,10 @@ cur_scores = list()
 fit_data0 = instance_a6[0] + instance_a7[0] + instance_a8[0] + instance_a9[0] + instance_a0[0] + instance_a1[0] + instance_a2[0] + instance_a3[0] + instance_a4[0] + instance_n6[0] + instance_n7[0] + instance_n8[0] + instance_n9[0] + instance_n0[0] + instance_n1[0] + instance_n2[0] + instance_n3[0] + instance_n4[0]
 fit_classes0 = instance_a6[1] + instance_a7[1] + instance_a8[1] + instance_a9[1] + instance_a0[1] + instance_a1[1] + instance_a2[1] + instance_a3[1] + instance_a4[1] + instance_n6[1] + instance_n7[1] + instance_n8[1] + instance_n9[1] + instance_n0[1] + instance_n1[1] + instance_n2[1] + instance_n3[1] + instance_n4[1]
 
-vali6 = makeValidationInstance(file_a5,format_index) + makeValidationInstance(file_n5,format_index)
+vp = makeValidationInstance(file_a5,format_index) 
+vpp = makeValidationInstance(file_n5,format_index)
+
+vali6 = vp + vpp
 
 print("Fold 7...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
@@ -496,7 +540,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -511,7 +555,10 @@ cur_scores = list()
 fit_data0 = instance_a7[0] + instance_a8[0] + instance_a9[0] + instance_a0[0] + instance_a1[0] + instance_a2[0] + instance_a3[0] + instance_a4[0] + instance_a5[0] + instance_n7[0] + instance_n8[0] + instance_n9[0] + instance_n0[0] + instance_n1[0] + instance_n2[0] + instance_n3[0] + instance_n4[0] + instance_n5[0]
 fit_classes0 = instance_a7[1] + instance_a8[1] + instance_a9[1] + instance_a0[1] + instance_a1[1] + instance_a2[1] + instance_a3[1] + instance_a4[1] + instance_a5[1] + instance_n7[1] + instance_n8[1] + instance_n9[1] + instance_n0[1] + instance_n1[1] + instance_n2[1] + instance_n3[1] + instance_n4[1] + instance_n5[1]
 
-vali7 = makeValidationInstance(file_a6,format_index) + makeValidationInstance(file_n6,format_index)
+vp = makeValidationInstance(file_a6,format_index) 
+vpp = makeValidationInstance(file_n6,format_index)
+
+vali7 = vp + vpp
 
 print("Fold 8...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
@@ -531,7 +578,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -546,8 +593,9 @@ cur_scores = list()
 fit_data0 = instance_a8[0] + instance_a9[0] + instance_a0[0] + instance_a1[0] + instance_a2[0] + instance_a3[0] + instance_a4[0] + instance_a5[0] + instance_a6[0] + instance_n8[0] + instance_n9[0] + instance_n0[0] + instance_n1[0] + instance_n2[0] + instance_n3[0] + instance_n4[0] + instance_n5[0] + instance_n6[0]
 fit_classes0 = instance_a8[1] + instance_a9[1] + instance_a0[1] + instance_a1[1] + instance_a2[1] + instance_a3[1] + instance_a4[1] + instance_a5[1] + instance_a6[1] + instance_n8[1] + instance_n9[1] + instance_n0[1] + instance_n1[1] + instance_n2[1] + instance_n3[1] + instance_n4[1] + instance_n5[1] + instance_n6[1]
 
-vali8 = makeValidationInstance(file_a7,format_index) + makeValidationInstance(file_n7,format_index)
-
+vp = makeValidationInstance(file_a7,format_index) 
+vpp = makeValidationInstance(file_n7,format_index)
+vali8 = vp + vpp
 print("Fold 9...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
 per8 = validateClass(clf,vali8,format_index)
@@ -566,7 +614,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -581,8 +629,10 @@ cur_scores = list()
 fit_data0 = instance_a9[0] + instance_a0[0] + instance_a1[0] + instance_a2[0] + instance_a3[0] + instance_a4[0] + instance_a5[0] + instance_a6[0] + instance_a7[0] + instance_n9[0] + instance_n0[0] + instance_n1[0] + instance_n2[0] + instance_n3[0] + instance_n4[0] + instance_n5[0] + instance_n6[0] + instance_n7[0]
 fit_classes0 = instance_a9[1] + instance_a0[1] + instance_a1[1] + instance_a2[1] + instance_a3[1] + instance_a4[1] + instance_a5[1] + instance_a6[1] + instance_a7[1] + instance_n9[1] + instance_n0[1] + instance_n1[1] + instance_n2[1] + instance_n3[1] + instance_n4[1] + instance_n5[1] + instance_n6[1] + instance_n7[1]
 
-vali9 = makeValidationInstance(file_a8,format_index) + makeValidationInstance(file_n8,format_index)
+vp = makeValidationInstance(file_a8,format_index) 
+vpp = makeValidationInstance(file_n8,format_index)
 
+vali9 = vp + vpp
 print("Fold 10...")
 clf.fit(removeNew(fit_data0),removeNew(fit_classes0))
 per9 = validateClass(clf,vali9,format_index)
@@ -601,7 +651,7 @@ fpr, tpr, thresholds = metrics.roc_curve(binary_array,scores_,pos_label=0)
 mean_tpr += interp(mean_fpr, fpr, tpr)
 mean_tpr[0] = 0.0
 
-plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
+##plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % metrics.auc(fpr,tpr))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
@@ -620,10 +670,13 @@ plt.xlim([-0.05, 1.05])
 plt.ylim([-0.05, 1.05])
 plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
-plt.title('Receiver operating characteristic ')
+plt.title('Receiver operating characteristic uncompressed')
 plt.legend(loc="lower right",fontsize='small')
 savefig('meanroc.png')
 
+
+gtruth.close()
+not_compress.close()
 total_percent = per0[0] + per1[0] + per2[0] + per3[0] + per4[0] + per5[0] + per6[0] + per7[0] + per8[0] + per9[0]
 print("Total cross validation percentage: " + str(float((total_percent)/(float(10.0))))) 
 print("Done...saved ROC curves for each fold and mean..")

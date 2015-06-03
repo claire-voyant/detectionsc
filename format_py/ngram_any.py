@@ -79,8 +79,8 @@ file_v9 = open("v9.txt", "a")
 format_v = [file_v0,file_v1,file_v2,file_v3,file_v4,file_v5,file_v6,file_v7,file_v8,file_v9]
 
 
-the_attack_files = glob.glob("../Attack_D_Master/*.txt")
-the_normal_files = glob.glob("../Normal_Data/*.txt")
+the_attack_files = glob.glob("../All_Attack/*.txt")
+the_normal_files = glob.glob("../Training_Data_Master/*.txt")
 the_vali_files   = glob.glob("../Vali_Data/*.txt")
 
 #####################################################
@@ -91,6 +91,7 @@ attack_words = []
 normal_words = []
 vali_words   = []
 
+compress = 404
 
 #####################################################
 ########Read in the sequences########################
@@ -130,8 +131,9 @@ y = 0
 index = 0
 to_write = format_n[index]
 
+
 for norm in normal_words:
-    for x in range(0,len(norm) - (n-1)):
+    for x in range(0,len(norm) - (len(norm) % n) - (n-1)):
         for form in range(0, n):
             if(form < n-1):
                 to_write.write(str(norm[x+form]) + " ")
@@ -150,14 +152,27 @@ for norm in normal_words:
 y = 0
 index = 0
 to_write = format_a[index]
+att_dict = dict() 
+##interest = {10,11,12,19,39,40,41,45,57,60,63,85,120,122,163,172,191,196,199,201,206,219,220,221,224,242,243,258,268,292,311}
+
+for q in range(0,405):
+	att_dict[q] = 0
+print"Att_dict:\n" + (str(att_dict))
 
 for norm in attack_words:
-    for x in range(0,len(norm) - (n-1)):
+    for r  in range(0,len(norm) - (len(norm) % n) - (n-1)):
+##	if(int(norm[r]) in interest):
+##		norm[r] = str(compress)
+##	att_dict[r] = att_dict[r] + 1	
+##	if(int(norm[x]) <= 237 and int(norm[x]) >= 226):
+##		print("AHAHA")
+##		norm[x] = str(compress)
         for form in range(0, n):
+	    att_dict[int(norm[r])] += 1
             if(form < n-1):
-                to_write.write(str(norm[x+form]) + " ")
+                to_write.write(str(norm[r+form]) + " ")
             elif(form == n-1):
-                to_write.write(str(norm[x+form]) + " 1\n")
+                to_write.write(str(norm[r+form]) + " 1\n")
     to_write.write("new\n")
     y += 1   
     if(y % files_a == 0 and index < 9):
@@ -172,7 +187,7 @@ index = 0
 to_write = format_v[index]
 
 for norm in vali_words:
-    for x in range(0,len(norm) - (n-1)):
+    for x in range(0,len(norm) - (len(norm) % n) - (n-1)):
         for form in range(0,n):
             if(form < n-1):
                 to_write.write(str(norm[x+form]) + " ")
@@ -209,7 +224,13 @@ for norm in vali_words:
   #      file_v.write(str(vali[x]) + " " + str(vali[x+1]) + " " + str(vali[x+2]) + " 0\n")
    # file_v.write("new\n")
 
+
+
+print("Here is the attack distribution:\n")
+for t in range(0,405):
+	if(int(att_dict[t]) <= 100 and int(att_dict[t]) != 0):
+		print("SYS_CALL: " + str(t) + " FREQ: " + str(att_dict[t]))
+
+
 print("Data Formatted...")
 
-    
-    
