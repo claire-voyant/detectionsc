@@ -1,5 +1,5 @@
-# datamining
-Python Scripts for Formatting Data -- Currently using the ADFA-LD dataset.
+# detectionsc (Intrusion Detection for System Calls)
+Python Scripts for Formatting Data -- Using the ADFA-LD dataset which contains system call traces.
 
 <ul>
   <li>Scripts format the data for evluation using Weka</li>
@@ -12,14 +12,16 @@ Python Scripts for Formatting Data -- Currently using the ADFA-LD dataset.
   <li>Created a primitive python script to format the normal training data into the arff file</li>
   <li>Began using scikit_learn's libraries to implement the corrected way of using ngramas in classification</li>
   <li>Successfully implemented SVM to be able to classify ngrams</li>
+  <li>Moved onto only using SVMs as a means of classification due to performance</li>
+  <li>Implemented cross validation with the SVM implementation</li>
+  <li>Created a formater for compression versus uncompressed system call traces using ngrams</li>
 </ul>
 
 #TO-DO
 
 <ul>
-  <li>Implement cross validation with the SVM implementation</li>
-  <li>Have errors with using scikit_learn NaiveBayes (GaussianBayes) "can not perform reduce with flexible type"</li>
-  <li>Go on in testing out implementing other algorithms: K Nearest Neighbors</li>
+  <li>Implement on a live system to validate results from the model</li>
+  <li>Optimization of the classification process during model building</li>
 </ul>
 
 
