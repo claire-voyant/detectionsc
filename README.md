@@ -2,8 +2,8 @@
 Python Scripts for Formatting Data -- Using the ADFA-LD dataset which contains system call traces.
 
 <ul>
-  <li>Scripts format the data for evluation using Weka</li>
-  <li>Current plans to use n-grams (with skips), weighted frequency vectors</li>
+  <li>Scripts format the data for evluation using scikitlearn</li>
+  <li>Contains a model builder for a support vector machine using the ngrams</li>
 </ul>
 
 #Updates
@@ -22,6 +22,7 @@ Python Scripts for Formatting Data -- Using the ADFA-LD dataset which contains s
 <ul>
   <li>Implement on a live system to validate results from the model</li>
   <li>Optimization of the classification process during model building</li>
+  <li>See the results of having skips in the ngrams</li>
 </ul>
 
 
